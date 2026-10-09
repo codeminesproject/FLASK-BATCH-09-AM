@@ -15,47 +15,53 @@
                     <div class="col-xl-12">
                         <h2 class="login-title">Register New User</h2>
                     </div>
-                    <div class="col-xl-12">
-                        <h4 class="login-label">Name</h4>
-                    </div>
-                    <div class="col-xl-12">
-                        <input type="text" name="txtName" class="form-control" />
-                    </div>
-                    <div class="col-xl-12">
-                        <h4 class="login-label">Email</h4>
-                    </div>
-                    <div class="col-xl-12">
-                        <input name="txtEmail" class="form-control" />
-                    </div>
-                    <div class="col-xl-12">
-                        <h4 class="login-label">Mobile</h4>
-                    </div>
-                    <div class="col-xl-12">
-                        <input name="txtMobile" class="form-control" />
-                    </div>
-                    <div class="col-xl-12">
-                        <h4 class="login-label">Password</h4>
-                    </div>
-                    <div class="col-xl-12">
-                        <input name="txtPassword" type="password" class="form-control" />
-                    </div>
-                    <div class="col-xl-12">
-                        <h4 class="login-label">Confirm Password</h4>
-                    </div>
-                    <div class="col-xl-12">
-                        <input name="txtCPassword" type="password" class="form-control" />
-                    </div>
+                    <form method="post" action="/register">
+                        <div class="col-xl-12">
+                            <h4 class="login-label">Name</h4>
+                        </div>
+                        <div class="col-xl-12">
+                            <input type="text" name="txtName" class="form-control" />
+                        </div>
+                        <div class="col-xl-12">
+                            <h4 class="login-label">Email</h4>
+                        </div>
+                        <div class="col-xl-12">
+                            <input name="txtEmail" class="form-control" />
+                        </div>
+                        <div class="col-xl-12">
+                            <h4 class="login-label">Mobile</h4>
+                        </div>
+                        <div class="col-xl-12">
+                            <input name="txtMobile" class="form-control" />
+                        </div>
+                        <div class="col-xl-12">
+                            <h4 class="login-label">Password</h4>
+                        </div>
+                        <div class="col-xl-12">
+                            <input name="txtPassword" type="password" class="form-control" />
+                        </div>
+                        <div class="col-xl-12">
+                            <h4 class="login-label">Confirm Password</h4>
+                        </div>
+                        <div class="col-xl-12">
+                            <input name="txtCPassword" type="password" class="form-control" />
+                        </div>
+
+                        <div class="col-xl-12">
+                            <input type="submit" value="Register" class="btn btn-primary login-button" />
+                        </div>
+                    </form>
 
                     <div class="col-xl-12">
-                        <input type="button" value="Register" class="btn btn-primary login-button" />
-                    </div>
-                    <div class="col-xl-12">
                         <p class="login-misc"><a href="/login">Login</a></p>
+                    </div>
+                    <div>
+                        {{message}}
                     </div>
                 </div>
                 <div class="col-xl-8 login-margin-top-3">
                     <div class="col-xl-12">
-                        <img src="{{url_for('static',filename='images/login_banner.png')}}" class="img-fluid"/>
+                        <img src="{{url_for('static',filename='images/login_banner.png')}}" class="img-fluid" />
                     </div>
                 </div>
             </div>

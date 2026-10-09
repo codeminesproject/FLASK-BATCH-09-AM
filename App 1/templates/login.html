@@ -15,28 +15,34 @@
                     <div class="col-xl-12">
                         <h2 class="login-title">Login</h2>
                     </div>
-                    <div class="col-xl-12">
-                        <h4 class="login-label">Username</h4>
-                    </div>
-                    <div class="col-xl-12">
-                        <input type="text" name="txtUsername" class="form-control" />
-                    </div>
-                    <div class="col-xl-12">
-                        <h4 class="login-label">Password</h4>
-                    </div>
-                    <div class="col-xl-12">
-                        <input type="password" name="txtPassword" class="form-control" />
-                    </div>
-                    <div class="col-xl-12">
-                        <input type="button" value="Login" class="btn btn-primary login-button" />
-                    </div>
+                    <form method="post" action="/login">
+                        <div class="col-xl-12">
+                            <h4 class="login-label">Username</h4>
+                        </div>
+                        <div class="col-xl-12">
+                            <input type="text" name="txtUsername" class="form-control" />
+                        </div>
+                        <div class="col-xl-12">
+                            <h4 class="login-label">Password</h4>
+                        </div>
+                        <div class="col-xl-12">
+                            <input type="password" name="txtPassword" class="form-control" />
+                        </div>
+                        <div class="col-xl-12">
+                            <input type="submit" value="Login" class="btn btn-primary login-button" />
+                        </div>
+                    </form>
+
                     <div class="col-xl-12">
                         <p class="login-misc">Dont have account? <a href="/register">Create Now</a></p>
+                    </div>
+                    <div class="col-xl-12">
+                        {{message}}
                     </div>
                 </div>
                 <div class="col-xl-8 login-margin-top-7">
                     <div class="col-xl-12">
-                        <img src="{{url_for('static',filename='images/login_banner.png')}}" class="img-fluid"/>
+                        <img src="{{url_for('static',filename='images/login_banner.png')}}" class="img-fluid" />
                     </div>
                 </div>
             </div>
