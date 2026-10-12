@@ -1,0 +1,30 @@
+.login-title {
+    text-align: center;
+}
+
+.login-label {
+    font-size: 20px;
+}
+
+.login-button{
+    margin-top: 5%;
+    width: 100%;
+}
+
+.login-misc {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.login-border {
+    border: 1px solid gray;
+    border-radius: 15px;
+}
+
+.login-margin-top-7 {
+    margin-top: 7%;
+}
+
+.login-margin-top-3 {
+    margin-top: 3%;
+}
