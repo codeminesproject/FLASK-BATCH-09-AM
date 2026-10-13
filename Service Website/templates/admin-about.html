@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Manage About | CodeMines Software
+    </title>
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet"/>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin-about">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Team</a>
+                    </li>
+                    <li class="nav-item">
+                       <p class="nav-link">Welcome {{user_name}}</p> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin-logout">Logout</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+</body>
+<body>
+    <div class="container">
+        <div>
+            <a href="/manage-about?id=0" class="btn btn-primary">ADD NEW ABOUT</a>
+        </div>
+        <div class="col-xl-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                         <th>
+                            Name
+                        </th>
+                         <th>
+                            Title
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    {% for about_data in data %}
+                    <tr>
+                        <td>
+                            {{about_data["id"]}}
+                        </td>
+                        <td>
+                            {{about_data["name"]}}
+                        </td>
+                        <td>
+                            {{about_data["title"]}}
+                        </td>
+                        <td>
+                            <a href="/" class="btn btn-warning">Edit</a>
+                            <a href="/" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

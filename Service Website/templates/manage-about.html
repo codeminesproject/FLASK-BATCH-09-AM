@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Manage About | CodeMines Software
+    </title>
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin-about">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <p class="nav-link">Welcome {{user_name}}</p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin-logout">Logout</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</body>
+
+<body>
+    <div class="container">
+        <div class="col-xl-12">
+            
+            <div class="row">
+                <form method="post" action="/manage-about">
+                    <div class="col-xl-12">
+                        <label>Menu Name:</label>
+                        <input type="text" name="menuname" class="form-control" />
+                    </div>
+                    <div class="col-xl-12">
+                        <label>Menu Title:</label>
+                        <input type="text" name="menutitle" class="form-control" />
+                    </div>
+                    <div class="col-xl-12">
+                        <label>Description</label>
+                        <input type="text" name="description" class="form-control" />
+                    </div>
+                    <div class="col-xl-12">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            {{message}}
+        </div>
+    </div>
+</body>
+
+</html>

@@ -31,3 +31,13 @@ def getSingleData(query):
             return data
     else:
         return None
+
+def getAllData(query):
+    connection = dbConnect()
+    if connection!=None:
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            data = cursor.fetchall()
+            return data
+    else:
+        return None
