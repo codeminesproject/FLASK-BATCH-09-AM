@@ -22,6 +22,26 @@ def insert(query):
     else:
         return False
 
+def update(query):
+    connection = dbConnect()
+    if connection!=None:
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            connection.commit()
+            return True
+    else:
+        return False
+
+def delete(query):
+    connection = dbConnect()
+    if connection!=None:
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            connection.commit()
+            return True
+    else:
+        return False
+
 def getSingleData(query):
     connection = dbConnect()
     if connection!=None:

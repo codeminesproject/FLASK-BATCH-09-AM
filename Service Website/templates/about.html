@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{menuname}} | CodeMines Computer Institute</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #202b3c;
+            line-height: 1.6;
+        }
+
+        .website {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* HEADER */
+        .header {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 24px;
+            background: #ffffff;
+            border: 1px solid #243e71;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            width: 244px;
+            height: 54px;
+            background: #416fbd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 19px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav a,
+        .dropdown-toggle {
+            color: #202020;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .nav a:hover,
+        .dropdown-toggle:hover,
+        .nav a.active {
+            color: #416fbd;
+        }
+
+        /* ABOUT DROPDOWN */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 0;
+        }
+
+        .arrow {
+            font-size: 12px;
+            transition: transform 0.25s ease;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: -15px;
+            min-width: 205px;
+            background: #ffffff;
+            border: 1px solid #e1e7f0;
+            border-radius: 6px;
+            box-shadow: 0 12px 28px rgba(25, 45, 80, 0.12);
+            padding: 8px 0;
+            display: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 17px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .dropdown.open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* MAIN CONTENT */
+        .main {
+            background: #ffffff;
+            border: 1px solid #243e71;
+            border-top: none;
+            min-height: 650px;
+            padding: 25px 30px 45px;
+        }
+
+        .breadcrumb {
+            color: #6c7789;
+            font-size: 14px;
+            margin-bottom: 26px;
+        }
+
+        .breadcrumb a {
+            color: #416fbd;
+            text-decoration: none;
+        }
+
+        .section-label {
+            color: #416fbd;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .page-title {
+            font-size: 34px;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            color: #192942;
+        }
+
+        .intro {
+            color: #657187;
+            font-size: 16px;
+            max-width: 760px;
+            margin-bottom: 34px;
+        }
+
+        /* SERVICE CARDS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .service-card {
+            border: 1px solid #e1e7f0;
+            border-radius: 9px;
+            padding: 26px 23px;
+            background: #ffffff;
+            transition: transform 0.25s ease,
+                        box-shadow 0.25s ease,
+                        border-color 0.25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #416fbd;
+            box-shadow: 0 12px 28px rgba(30, 60, 110, 0.09);
+        }
+
+        .service-icon {
+            width: 51px;
+            height: 51px;
+            border-radius: 10px;
+            background: #edf3ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #416fbd;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 19px;
+            margin-bottom: 11px;
+            color: #192942;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #68758a;
+            margin-bottom: 19px;
+        }
+
+        .service-link {
+            display: inline-block;
+            color: #416fbd;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .service-link:hover {
+            color: #234b91;
+        }
+
+        /* CALL TO ACTION */
+        .cta {
+            margin-top: 35px;
+            padding: 27px 30px;
+            background: #edf3ff;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .cta h2 {
+            font-size: 21px;
+            color: #192942;
+            margin-bottom: 5px;
+        }
+
+        .cta p {
+            color: #657187;
+            font-size: 14px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #416fbd;
+            color: #ffffff;
+            padding: 12px 22px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: background 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: #2c5295;
+        }
+
+        /* MOBILE NAVIGATION */
+        .menu-button {
+            display: none;
+            background: #416fbd;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 9px 13px;
+            font-size: 21px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            .nav {
+                gap: 16px;
+            }
+
+            .logo {
+                width: 190px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 650px) {
+            .website {
+                padding: 10px;
+            }
+
+            .header {
+                min-height: 75px;
+                padding: 12px;
+            }
+
+            .logo {
+                width: 175px;
+                height: 45px;
+                font-size: 15px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                border: 1px solid #e1e7f0;
+                box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+                padding: 15px;
+                display: none;
+                align-items: stretch;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .nav.show {
+                display: flex;
+            }
+
+            .nav > a,
+            .dropdown-toggle {
+                padding: 11px 8px;
+                width: 100%;
+                text-align: left;
+            }
+
+            .dropdown-toggle {
+                justify-content: space-between;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                border-radius: 4px;
+                margin: 0 0 8px 8px;
+            }
+
+            .main {
+                padding: 22px 16px 30px;
+            }
+
+            .page-title {
+                font-size: 28px;
+            }
+
+            .intro {
+                font-size: 15px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .service-card {
+                padding: 22px;
+            }
+
+            .cta {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 22px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="website">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <a href="index.html" class="logo"
+           style="text-decoration:none;">
+            CodeMines
+        </a>
+
+        <button class="menu-button"
+                id="menuButton"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="nav" id="mainNav" aria-label="Main navigation">
+
+            <a href="index.html">Home</a>
+
+            <div class="dropdown" id="aboutDropdown">
+
+                <button class="dropdown-toggle"
+                        id="aboutToggle"
+                        aria-expanded="false"
+                        aria-haspopup="true">
+                    About Us
+                    <span class="arrow">▼</span>
+                </button>
+
+                <div class="dropdown-menu">
+                    {% for menu in about_submenu %}
+                        <a href="/about?id={{menu['id']}}">{{menu["name"]}}</a>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+            <a href="services.html" class="active"
+               aria-current="page">Services</a>
+
+            <a href="team.html">Team</a>
+
+            <a href="contact.html">Contact Us</a>
+
+        </nav>
+
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="main">
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            &nbsp; &gt;&gt; &nbsp; {{menuname}}
+        </div>
+
+        <section>
+
+            <div class="section-label">What We Do</div>
+
+            <h1 class="page-title">{{menutitle}}</h1>
+
+            <p class="intro">
+                {{description}}
+            </p>
+
+        </section>
+
+        
+
+        <!-- CALL TO ACTION -->
+        <section class="cta">
+
+            <div>
+                <h2>Ready to upgrade your skills?</h2>
+
+                <p>
+                    Connect with CodeMines to find the right
+                    training program or technology solution.
+                </p>
+            </div>
+
+            <a href="contact.html" class="cta-button">
+                Contact Us →
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+    const menuButton = document.getElementById("menuButton");
+    const mainNav = document.getElementById("mainNav");
+    const aboutDropdown = document.getElementById("aboutDropdown");
+    const aboutToggle = document.getElementById("aboutToggle");
+
+    // Mobile navigation
+    menuButton.addEventListener("click", function () {
+        const isOpen = mainNav.classList.toggle("show");
+
+        menuButton.setAttribute("aria-expanded", isOpen);
+    });
+
+    // About Us dropdown: click to open and close
+    aboutToggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        const isOpen = aboutDropdown.classList.toggle("open");
+
+        aboutToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!aboutDropdown.contains(event.target)) {
+            aboutDropdown.classList.remove("open");
+            aboutToggle.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    // Close menus with Escape key
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            aboutDropdown.classList.remove("open");
+            aboutToggle.setAttribute("aria-expanded", "false");
+            mainNav.classList.remove("show");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.focus();
+        }
+    });
+</script>
+
+</body>
+</html>

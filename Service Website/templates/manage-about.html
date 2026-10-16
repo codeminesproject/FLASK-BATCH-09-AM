@@ -47,23 +47,29 @@
 <body>
     <div class="container">
         <div class="col-xl-12">
-            
+            {% if id>0  %}
+                <h2>Edit About</h2>
+            {% else %}
+                <h2>Add New About</h2>
+            {% endif %}
             <div class="row">
                 <form method="post" action="/manage-about">
                     <div class="col-xl-12">
                         <label>Menu Name:</label>
-                        <input type="text" name="menuname" class="form-control" />
+                        <input type="hidden" name="id" value="{{id}}" />
+                        <input type="text" name="menuname" class="form-control" value="{{menuname}}" />
                     </div>
                     <div class="col-xl-12">
                         <label>Menu Title:</label>
-                        <input type="text" name="menutitle" class="form-control" />
+                        <input type="text" name="menutitle" class="form-control" value="{{menutitle}}" />
                     </div>
                     <div class="col-xl-12">
                         <label>Description</label>
-                        <input type="text" name="description" class="form-control" />
+                        <input type="text" name="description" class="form-control" value="{{description}}" />
                     </div>
                     <div class="col-xl-12">
                         <input type="submit" value="Submit" class="btn btn-primary" />
+                        <a href="/admin-about" class="btn btn-primary">Back</a>
                     </div>
                 </form>
             </div>

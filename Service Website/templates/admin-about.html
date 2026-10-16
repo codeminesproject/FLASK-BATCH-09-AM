@@ -80,8 +80,8 @@
                             {{about_data["title"]}}
                         </td>
                         <td>
-                            <a href="/" class="btn btn-warning">Edit</a>
-                            <a href="/" class="btn btn-danger">Delete</a>
+                            <a href="/manage-about?id={{about_data['id']}}" class="btn btn-warning">Edit</a>
+                            <a href="/delete-about?id={{about_data['id']}}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     {% endfor %}
